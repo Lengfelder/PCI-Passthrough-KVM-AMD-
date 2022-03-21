@@ -1,5 +1,11 @@
+# Table of contents
+
 # PCI-Passthrough-KVM-AMD-
 My private how-to on how to run Windows 10 virtualized inside Pop_OS!
+This is only applicable to my specific system and level of understanding. 
+Work in progress, hopefully it will turn in to something you can use.
+
+
 
 ## Hardware Setup
 - CPU: 
@@ -19,10 +25,9 @@ Samsung 970 EVO Plus SSD 1TB - M.2 NVMe (host)
 I will be using Pop_OS! 21.10 Nvidia Edition
 This is Ubuntu-based, but instead of GRUB bootloader it uses systemd and has kernelstub preinstalled.
 
-#### OpenSSH setup
+#### OpenSSH setup [^1]
 This is recomended if something goes wrong
 # Preparing Linux system
-
 
 
 
@@ -165,6 +170,15 @@ fi
 
 # References:
 
+### Initial Configuration
+
+[^1]: [OpenSSH-Server setup](https://support.system76.com/articles/server-setup/)
+
+### Virtual Machine configuration
+
+### System Tuning
+
+     
 https://www.tauceti.blog/posts/linux-amd-x570-nvidia-gpu-pci-passthrough-2-prepare-linux/
 https://www.heiko-sieger.info/creating-a-windows-10-vm-on-the-amd-ryzen-9-3900x-using-qemu-4-0-and-vga-passthrough/
 
