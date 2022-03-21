@@ -1,4 +1,27 @@
+# QEMU-KVM GPU- and NVME PCI-passthrough via OVMF
+You're probably here for the same reason i visited [Bryansteiner's](https://github.com/bryansteiner/gpu-passthrough-tutorial)[^1] great tutorial.
+However this was not the only tutorial i need to get "it" to work. I relied on many different writedowns and step-by-steps that i've included in this tutorial. 
 
+# Considerations
+
+# Hardware 
+## My sick gamestation Setup
+- CPU: 
+  - AMD Ryzen 5 3600 6c/12t
+- Motherboard: 
+  - Asus X570-F
+- GPUs:
+  - NVIDIA RTX 2070 Super (guest)
+  - NVIDIA GT 1050ti (host)
+- Memory:
+  - Gskill DDR4 2133Mhz Dual-Rank 2x8GB
+- Disk:
+  - Intel 660p 2TB - M.2 NVMe (guest)
+  - Samsung 970 EVO Plus SSD 1TB - M.2 NVMe (host)
+- Screen
+  - CRG9 49" 5120x1440 w/ KVM-switch
+  - Looking Glass
+- Extra keyboard/mouse
 
 
 # PCI-Passthrough-KVM-AMD-
@@ -8,19 +31,6 @@ Work in progress, hopefully it will turn in to something you can use.
 
 
 
-## Hardware Setup
-- CPU: 
-AMD Ryzen 5 3600 6/12
-- Motherboard: 
-Asus X570-F
-- GPUs:
-NVIDIA RTX 2070 Super
-NVIDIA GT 1050ti
-- Memory:
-16GB Gskill DDR4 
-- Disk:
-Intel 660p 2TB - M.2 NVMe (guest)
-Samsung 970 EVO Plus SSD 1TB - M.2 NVMe (host)
 
 ## Software setup
 I will be using Pop_OS! 21.10 Nvidia Edition
