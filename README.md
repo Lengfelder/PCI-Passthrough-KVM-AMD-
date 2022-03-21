@@ -66,12 +66,10 @@ The important parameter are the ones in the options line: amd_iommu=on iommu=pt.
 
 2. Now we'll need to install the required software:
 ```
-sudo apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager ovmf
-sudo apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils virt-manager ovmf
-sudo apt install                                                             virt-manager ovmf
-sudo apt install qemu-kvm qemu-utils libvirt-clients libvirt-daemon-system bridge-utils virt-manager ovmf
-sudo apt install qemu-kvm qemu-utils libvirt-daemon-system libvirt-clients  virt-manager ovmf
+sudo apt install qemu-kvm libvirt-clients libvirt-daemon-system bridge-utils qemu-utils   virt-manager ovmf
+
 ```
+
 
 Make your user member of the kvm and libvirt groups (not sure this is necessary):
 
@@ -91,11 +89,17 @@ sudo usermod -a -G libvirt myusername
 
 # Configure KVM VM
 
+
 # Installing Windows
+Next next OK Finish
 
 # Tuning
 
 ### Hooks
+
+### Hugepages
+
+### CPU pinning
 
 # References:
 
