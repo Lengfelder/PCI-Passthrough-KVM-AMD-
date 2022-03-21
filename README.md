@@ -95,11 +95,73 @@ Next next OK Finish
 
 # Tuning
 
-### Hooks
+### XML
+```
+<features>
+    ...
+    <hyperv>
+        <relaxed state="on"/>
+        <vapic state="on"/>
+        <spinlocks state="on" retries="8191"/>
+        <vendor_id state="on" value="kvm hyperv"/>
+        
+    </hyperv>
+     <kvm>
+      <hidden state="on"/>
+    </kvm>
+    ...
+    <ioapic driver="kvm"/>
+</features>
+```
+```
+ 
+```
+```
+ignore_msrs=1
+```
+```
+```
+
+
+
+# Hooks
+## CPU Hooks
+```
+#!/bin/sh
+
+command=$2
+
+if [ "$command" = "started" ]; then
+    systemctl set-property --runtime -- system.slice AllowedCPUs=0,1,6,7
+    systemctl set-property --runtime -- user.slice AllowedCPUs=0,1,6,7
+    systemctl set-property --runtime -- init.scope AllowedCPUs=0,1,6,7
+elif [ "$command" = "release" ]; then
+    systemctl set-property --runtime -- system.slice AllowedCPUs=0-11
+    systemctl set-property --runtime -- user.slice AllowedCPUs=0-11
+    systemctl set-property --runtime -- init.scope AllowedCPUs=0-11
+fi
+```
 
 ### Hugepages
 
+```
+<memory unit="KiB">16777216</memory>
+<currentMemory unit="KiB">16777216</currentMemory>
+<memoryBacking>
+    <hugepages/>
+</memoryBacking>
+```
+
 ### CPU pinning
+
+```
+<cpu mode="host-passthrough" check="none">
+  <topology sockets="1" cores="6" threads="2"/>
+  <cache mode='passthrough'/>
+  <feature policy='require' name='topoext'/>
+</cpu>
+```
+
 
 # References:
 
@@ -124,4 +186,6 @@ fan speed
 https://www.reddit.com/r/VFIO/comments/titakv/my_fully_almost_automatic_single_gpu_passthrough/
 hooks
 
+https://www.redhat.com/en/blog/using-kvm-simulate-numa-configurations-openstack
+On NUMA nodes cpu//ram
 
